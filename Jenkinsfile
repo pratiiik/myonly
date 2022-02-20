@@ -12,8 +12,8 @@ node {
       sh 'npm test'
      }
   }
-  stage('docker build/push') {
-    docker.withregistry('https://index.docker.io/v1/', 'dockerhub') {
+  stage('dockerbuild/push') {
+    docker.withregistry('https://index.docker.io/v1/','dockerhub') {
       def app = docker.build("7517/jenkins-docker:${commit_id}",'.').push()
     }
   }
